@@ -35,8 +35,5 @@
   "prisma": {
     "schema": "db/schema.prisma",
     "seed": "ts-node db/seed.ts"
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix"
   }
 }
