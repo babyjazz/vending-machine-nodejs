@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import errorMessages from '../constants/errors'
+import { AUTH_SECRET } from '../config/env'
 
 const prisma = new PrismaClient()
 
@@ -16,11 +17,11 @@ const login = async (req: Request, res: Response) => {
   if (!user || !authenticated) {
     res
       .status(401)
-      .json({ success: false, message: errorMessages.invalidCredential })
+      .json({ success: false, message: errorMessages.invalidCredential() })
   } else {
     const accessToken = jwt.sign(
       { userId: user.id, username: user.username },
-      'secret'
+      AUTH_SECRET
     )
     // TODO find the way to remove password in correct way
     // eslint-disable-next-line
