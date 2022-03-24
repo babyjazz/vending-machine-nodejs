@@ -1,5 +1,5 @@
 {
   "*.ts": [
-    "eslint *.ts -c .eslintrc.json --fix"
+    "eslint *.ts --fix"
   ]
 }
