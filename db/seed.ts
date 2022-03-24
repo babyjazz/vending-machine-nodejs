@@ -4,8 +4,6 @@ import bcrypt from 'bcrypt'
 
 const prisma = new PrismaClient()
 
-const a = 2
-
 const userData = [
   {
     username: 'test1',
