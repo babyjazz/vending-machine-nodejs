@@ -1,4 +1,5 @@
-import { PrismaClient, Prisma } from '@prisma/client'
+/* eslint-disable no-await-in-loop */
+import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
 
 const prisma = new PrismaClient()
@@ -16,7 +17,8 @@ const userData = [
 
 async function main() {
   console.log(`Start seeding ...`)
-  for (const u of userData) {
+  for (let i = 0; i < userData.length; i++) {
+    const u = userData[i]
     await prisma.users.create({
       data: u,
     })
