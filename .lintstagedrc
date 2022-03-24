@@ -1,4 +1,5 @@
 {
   "*.ts": [
+    "eslint *.ts --fix"
   ]
 }
