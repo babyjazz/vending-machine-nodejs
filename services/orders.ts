@@ -7,7 +7,7 @@ import { getBalance } from '../utils/get-balance'
 
 const prisma = new PrismaClient()
 
-// test
+// test1
 const purchase = async (req: CustomRequest, res: Response) => {
   const message = checkErrorsValidation(req)
   if (message) {
