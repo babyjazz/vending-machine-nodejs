@@ -1,12 +1,12 @@
 {
   "env": {
-    "browser": true,
-    "es2021": true
+    "node": true,
+    "es2021": true,
+    "embertest": true
   },
   "extends": [
     "airbnb-base",
     "eslint:recommended",
-    "plugin:node/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
@@ -16,7 +16,24 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
     "no-console": "off",
