@@ -9,6 +9,7 @@ const purchase = [
     .toInt()
     .isNumeric()
     .withMessage(errorMessages.mustBeInt('product')),
+  check('ten').toInt().isNumeric().withMessage(errorMessages.mustBeInt('ten')),
 ]
 
 const ordersValidators = {

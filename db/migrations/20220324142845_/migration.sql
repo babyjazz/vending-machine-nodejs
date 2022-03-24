@@ -45,10 +45,26 @@ CREATE TABLE "wallets" (
     "fifty" INTEGER NOT NULL DEFAULT 0,
     "hundred" INTEGER NOT NULL DEFAULT 0,
     "five_hundred" INTEGER NOT NULL DEFAULT 0,
-    "thounsand" INTEGER NOT NULL DEFAULT 0,
+    "thousand" INTEGER NOT NULL DEFAULT 0,
     "created_at" TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "wallets_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "available_coins" (
+    "id" SERIAL NOT NULL,
+    "one" INTEGER NOT NULL DEFAULT 0,
+    "five" INTEGER NOT NULL DEFAULT 0,
+    "ten" INTEGER NOT NULL DEFAULT 0,
+    "twenty" INTEGER NOT NULL DEFAULT 0,
+    "fifty" INTEGER NOT NULL DEFAULT 0,
+    "hundred" INTEGER NOT NULL DEFAULT 0,
+    "five_hundred" INTEGER NOT NULL DEFAULT 0,
+    "thousand" INTEGER NOT NULL DEFAULT 0,
+    "created_at" TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "available_coins_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey

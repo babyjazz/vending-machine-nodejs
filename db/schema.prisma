@@ -1,59 +1,57 @@
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
 }
 
 model orders {
-  id         Int           @id @default(autoincrement())
-  product_id Int?
-  user_id    Int?
-  quantity   Int           @default(0)
-  status     order_status?
-  created_at DateTime      @default(now()) @db.Timestamptz(6)
-  products   products?     @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  users      users?        @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    id         Int           @id @default(autoincrement())
+    product_id Int?
+    user_id    Int?
+    quantity   Int           @default(0)
+    status     order_status?
+    created_at DateTime      @default(now()) @db.Timestamptz(6)
+    products   products?     @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    users      users?        @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model products {
-  id         Int      @id @default(autoincrement())
-  name       String?  @db.VarChar
-  price      Int      @default(0)
-  amount     Int      @default(0)
-  created_at DateTime @default(now()) @db.Timestamptz(6)
-  orders     orders[]
+    id         Int      @id @default(autoincrement())
+    name       String?  @db.VarChar
+    price      Int      @default(0)
+    amount     Int      @default(0)
+    created_at DateTime @default(now()) @db.Timestamptz(6)
+    orders     orders[]
 }
 
 model users {
-  id         Int       @id @default(autoincrement())
-  username   String?   @db.VarChar
-  password   String?   @db.VarChar
-  created_at DateTime  @default(now()) @db.Timestamptz(6)
-  orders     orders[]
-  wallets    wallets[]
+    id         Int       @id @default(autoincrement())
+    username   String?   @db.VarChar
+    password   String?   @db.VarChar
+    created_at DateTime  @default(now()) @db.Timestamptz(6)
+    orders     orders[]
 }
 
-model wallets {
-  id           Int      @id @default(autoincrement())
-  user_id      Int?
-  one          Int      @default(0)
-  five         Int      @default(0)
-  ten          Int      @default(0)
-  twenty       Int      @default(0)
-  fifty        Int      @default(0)
-  hundred      Int      @default(0)
-  five_hundred Int      @default(0)
-  thousand    Int      @default(0)
-  created_at   DateTime @default(now()) @db.Timestamptz(6)
-  users        users?   @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+model available_coins {
+    id           Int      @id @default(autoincrement())
+    one          Int      @default(0)
+    five         Int      @default(0)
+    ten          Int      @default(0)
+    twenty       Int      @default(0)
+    fifty        Int      @default(0)
+    hundred      Int      @default(0)
+    five_hundred Int      @default(0)
+    thousand     Int      @default(0)
+    created_at   DateTime @default(now()) @db.Timestamptz(6)
 }
 
 enum order_status {
-  failure
-  success
-  insufficient_balance
-  out_of_stock
+    failure
+    success
+    insufficient_balance
+    out_of_stock
 }

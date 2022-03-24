@@ -10,9 +10,6 @@ const login = async (req: Request, res: Response) => {
   const { username, password } = req.body
   const user = await prisma.users.findFirst({
     where: { username },
-    include: {
-      wallets: true,
-    },
   })
   const authenticated = bcrypt.compareSync(password, user?.password ?? '')
 

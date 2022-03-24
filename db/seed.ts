@@ -37,8 +37,8 @@ async function main() {
   console.log('Clear data before seed ...')
   await prisma.orders.deleteMany()
   await prisma.products.deleteMany()
-  await prisma.wallets.deleteMany()
   await prisma.users.deleteMany()
+  await prisma.available_coins.deleteMany()
   console.log('Cleared data every tables')
 
   console.log(`Start seeding ...`)
@@ -49,30 +49,27 @@ async function main() {
       data,
     })
   }
-  // Create wallets
+  // Create products
   for (let i = 0; i < productData.length; i++) {
     const data = productData[i]
     await prisma.products.create({
       data,
     })
   }
-  // Create wallet per user
-  const users = await prisma.users.findMany()
-  users.forEach(async (user) => {
-    await prisma.wallets.create({
-      data: {
-        user_id: user.id,
-        one: 20,
-        five: 20,
-        ten: 20,
-        twenty: 20,
-        fifty: 20,
-        hundred: 20,
-        five_hundred: 20,
-        thousand: 20,
-      },
-    })
+  // Create vending machine available coins
+  await prisma.available_coins.create({
+    data: {
+      one: 20,
+      five: 20,
+      ten: 20,
+      twenty: 20,
+      fifty: 20,
+      hundred: 20,
+      five_hundred: 20,
+      thousand: 20,
+    },
   })
+
   console.log(`Seeding finished.`)
 }
 
