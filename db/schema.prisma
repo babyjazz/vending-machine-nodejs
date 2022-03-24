@@ -54,4 +54,5 @@ enum order_status {
     success
     insufficient_balance
     out_of_stock
+	insufficient_change
 }

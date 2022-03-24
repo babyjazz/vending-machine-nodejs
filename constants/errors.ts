@@ -7,6 +7,7 @@ const errorMessages = {
   outOfStock: (field: string) => `${field}_out_of_stock`,
   failureCreate: (field: string) => `cannot_create_${field}`,
   insufficient: (field: string) => `${field}_is_insufficient`,
+  isNotEnough: (field: string) => `${field}_is_not_enough`,
 }
 
 export default errorMessages

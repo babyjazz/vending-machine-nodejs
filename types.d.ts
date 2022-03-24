@@ -20,3 +20,14 @@ interface BankNoteTypes {
   fiveHundred?: number
   thousand?: number
 }
+
+interface BankNoteReverseTypes {
+  1?: string
+  5?: string
+  10?: string
+  20?: string
+  50?: string
+  100?: string
+  500?: string
+  1000?: string
+}

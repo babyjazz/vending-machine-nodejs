@@ -9,7 +9,46 @@ const purchase = [
     .toInt()
     .isNumeric()
     .withMessage(errorMessages.mustBeInt('product')),
-  check('ten').toInt().isNumeric().withMessage(errorMessages.mustBeInt('ten')),
+  check('one')
+    .optional()
+    .toInt()
+    .isNumeric()
+    .withMessage(errorMessages.mustBeInt('one')),
+  check('five')
+    .optional()
+    .toInt()
+    .isNumeric()
+    .withMessage(errorMessages.mustBeInt('five')),
+  check('ten')
+    .optional()
+    .toInt()
+    .isNumeric()
+    .withMessage(errorMessages.mustBeInt('ten')),
+  check('twenty')
+    .optional()
+    .toInt()
+    .isNumeric()
+    .withMessage(errorMessages.mustBeInt('twenty')),
+  check('fifty')
+    .optional()
+    .toInt()
+    .isNumeric()
+    .withMessage(errorMessages.mustBeInt('fifty')),
+  check('hundred')
+    .optional()
+    .toInt()
+    .isNumeric()
+    .withMessage(errorMessages.mustBeInt('hundred')),
+  check('fiveHundred')
+    .optional()
+    .toInt()
+    .isNumeric()
+    .withMessage(errorMessages.mustBeInt('fiveHundred')),
+  check('thousand')
+    .optional()
+    .toInt()
+    .isNumeric()
+    .withMessage(errorMessages.mustBeInt('thousand')),
 ]
 
 const ordersValidators = {

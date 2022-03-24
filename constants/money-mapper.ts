@@ -1,6 +1,6 @@
-import { BankNoteTypes } from '../types'
+import { BankNoteReverseTypes, BankNoteTypes } from '../types'
 
-const moneyMapper: BankNoteTypes = {
+const bankNoteMapper: BankNoteTypes = {
   one: 1,
   five: 5,
   ten: 10,
@@ -11,4 +11,15 @@ const moneyMapper: BankNoteTypes = {
   thousand: 1000,
 }
 
-export default moneyMapper
+const bankNoteReverseMapper: BankNoteReverseTypes = {
+  '1': 'one',
+  '5': 'five',
+  '10': 'ten',
+  '20': 'twenty',
+  '50': 'fifty',
+  '100': 'hundred',
+  '500': 'fiveHundred',
+  '1000': 'thousand',
+}
+
+export { bankNoteMapper, bankNoteReverseMapper }
