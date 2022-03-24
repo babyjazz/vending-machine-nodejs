@@ -24,6 +24,7 @@
     }
   },
   "rules": {
+    "import/no-unresolved": ["error"],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -37,6 +38,21 @@
     "prettier/prettier": "error",
     "no-unused-vars": "error",
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-console": "off"
-  }
+    "no-console": "off",
+    "import/prefer-default-export": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        "no-unused-vars": ["error", { "args": "none" }]
+      }
+    },
+    {
+      "files": ["*.tsx", "*.ts"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
 }

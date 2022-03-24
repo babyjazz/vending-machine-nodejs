@@ -69,7 +69,7 @@ async function main() {
         fifty: 20,
         hundred: 20,
         five_hundred: 20,
-        thounsand: 20,
+        thousand: 20,
       },
     })
   })
