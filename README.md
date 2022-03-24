@@ -17,4 +17,4 @@ yarn install
 ```
 yarn dev
 ```
-Server will run on `localhost:3000`
+Server will run on `localhost:3001`
