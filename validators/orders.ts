@@ -39,11 +39,11 @@ const purchase = [
     .toInt()
     .isNumeric()
     .withMessage(errorMessages.mustBeInt('hundred')),
-  check('fiveHundred')
+  check('fivehundred')
     .optional()
     .toInt()
     .isNumeric()
-    .withMessage(errorMessages.mustBeInt('fiveHundred')),
+    .withMessage(errorMessages.mustBeInt('fivehundred')),
   check('thousand')
     .optional()
     .toInt()

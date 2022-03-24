@@ -65,7 +65,7 @@ async function main() {
       twenty: 20,
       fifty: 20,
       hundred: 20,
-      five_hundred: 20,
+      fivehundred: 20,
       thousand: 20,
     },
   })

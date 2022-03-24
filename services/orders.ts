@@ -38,7 +38,7 @@ const purchase = async (req: CustomRequest, res: Response) => {
     twenty,
     fifty,
     hundred,
-    fiveHundred,
+    fivehundred,
     thousand,
   } = req.body
   const moneyPaid: BankNoteTypes = {
@@ -48,7 +48,7 @@ const purchase = async (req: CustomRequest, res: Response) => {
     twenty,
     fifty,
     hundred,
-    fiveHundred,
+    fivehundred,
     thousand,
   }
   const userId = req.jwt?.userId || 0
@@ -79,7 +79,7 @@ const purchase = async (req: CustomRequest, res: Response) => {
     await createOrderTx(product.id, userId, 'insufficient_balance')
     return res
       .status(422)
-      .json({ success: false, message: errorMessages.insufficient })
+      .json({ success: false, message: errorMessages.insufficient('balance') })
   }
 
   // 3. Check vending coins/notebanks have enough to change
@@ -103,6 +103,42 @@ const purchase = async (req: CustomRequest, res: Response) => {
       },
       data: {
         amount: product.amount - 1,
+      },
+    })
+    await prisma.available_coins.updateMany({
+      data: {
+        one:
+          (availableCoins?.one || 0) +
+          (moneyPaid?.one || 0) -
+          (changes?.one || 0),
+        five:
+          (availableCoins?.five || 0) +
+          (moneyPaid?.five || 0) -
+          (changes?.five || 0),
+        ten:
+          (availableCoins?.ten || 0) +
+          (moneyPaid?.ten || 0) -
+          (changes?.ten || 0),
+        twenty:
+          (availableCoins?.twenty || 0) +
+          (moneyPaid?.twenty || 0) -
+          (changes?.twenty || 0),
+        fifty:
+          (availableCoins?.fifty || 0) +
+          (moneyPaid?.fifty || 0) -
+          (changes?.fifty || 0),
+        hundred:
+          (availableCoins?.hundred || 0) +
+          (moneyPaid?.hundred || 0) -
+          (changes?.hundred || 0),
+        fivehundred:
+          (availableCoins?.fivehundred || 0) +
+          (moneyPaid?.fivehundred || 0) -
+          (changes?.fivehundred || 0),
+        thousand:
+          (availableCoins?.thousand || 0) +
+          (moneyPaid?.thousand || 0) -
+          (changes?.thousand || 0),
       },
     })
     await createOrderTx(product.id, userId, 'success')

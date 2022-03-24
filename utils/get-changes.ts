@@ -8,12 +8,11 @@ interface ChangesTypes {
   [key: string]: number
 }
 
-const getChanges = (amount: number, bankNotes: BankNoteTypes) => {
+const getChanges = (amount: number, bankNotes: BankNoteTypes): ChangesTypes => {
   const changes: ChangesTypes = {}
   const bankNotesArray = Object.keys(bankNotes)
     .map((bankNote) => bankNoteMapper?.[bankNote] || 0)
-    .sort()
-    .reverse()
+    .sort((a, b) => b - a)
 
   for (let i = 0; amount > 0 && i < bankNotesArray.length; i++) {
     const value = bankNotesArray[i]

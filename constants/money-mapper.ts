@@ -7,7 +7,7 @@ const bankNoteMapper: BankNoteTypes = {
   twenty: 20,
   fifty: 50,
   hundred: 100,
-  fiveHundred: 500,
+  fivehundred: 500,
   thousand: 1000,
 }
 
@@ -18,7 +18,7 @@ const bankNoteReverseMapper: BankNoteReverseTypes = {
   '20': 'twenty',
   '50': 'fifty',
   '100': 'hundred',
-  '500': 'fiveHundred',
+  '500': 'fivehundred',
   '1000': 'thousand',
 }
 

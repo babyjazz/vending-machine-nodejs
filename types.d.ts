@@ -17,7 +17,7 @@ interface BankNoteTypes {
   twenty?: number
   fifty?: number
   hundred?: number
-  fiveHundred?: number
+  fivehundred?: number
   thousand?: number
 }
 
