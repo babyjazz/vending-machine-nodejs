@@ -1,33 +1,21 @@
-import express from "express";
-import bodyParser from "body-parser";
-import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcrypt";
+import express from 'express'
+import userRouter from './routes/user'
+const app = express()
+const port = 3000
 
-const prisma = new PrismaClient();
-const app = express();
-const port = 3000;
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.get('/', async (_, res) => {
+  res.json({ success: true })
+})
 
-app.get("/", async (req, res) => {
-  res.json({ success: true });
-});
+app.use('/user', userRouter)
 
-app.post("/session", async (req, res) => {
-  const { username, password } = req.body;
-  const user = await prisma.users.findFirst({
-    where: { username },
-  });
-
-  const authenticated = bcrypt.compareSync(password, user?.password ?? "");
-  if (!user || !authenticated) {
-    res.status(401).json({ success: false, message: "invalid_credential" });
-  } else {
-    res.json({ success: true, data: user });
-  }
-});
+app.use((req, res) => {
+  res.status(404).render('404.jade')
+})
 
 app.listen(port, () => {
-  console.log(`App is listening on port ${port}`);
-});
+  console.log(`App is listening on port ${port}`)
+})
