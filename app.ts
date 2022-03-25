@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import userRouter from './routes/user'
 import ordersRouter from './routes/orders'
 import productsRouter from './routes/products'
@@ -6,6 +7,7 @@ import productsRouter from './routes/products'
 const app = express()
 const port = 3001
 
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
