@@ -1,5 +1,18 @@
 # Vending machine playground mini
 
+## Features
+- Login with exist user (Not full authen flow)
+	- JWT access token support
+	- username: test1
+	- password: 123456
+	- // you can check from table user in DB or in seed file
+- List products with product detail
+- Order transaction with each status
+	- validated request
+	- There is enum for status
+	- Log transaction of ordering
+
+
 ## Requirement tool/lib
 - nodejs v16
 - typescript
