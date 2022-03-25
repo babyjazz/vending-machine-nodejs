@@ -20,16 +20,22 @@ const productData = [
     name: 'Coke',
     price: 13,
     amount: 7,
+    image:
+      'https://newyorkpizza.online/live/wp-content/uploads/2020/09/Coke_125L.jpg',
   },
   {
     name: 'Bento',
     price: 25,
     amount: 8,
+    image:
+      'https://secure.ap-tescoassets.com/assets/TH/283/8850157403283/ShotType1_540x540.jpg',
   },
   {
     name: 'Lays',
     price: 20,
     amount: 10,
+    image:
+      'https://secure.ap-tescoassets.com/assets/TH/145/0028400017145/ShotType1_540x540.jpg',
   },
 ]
 
