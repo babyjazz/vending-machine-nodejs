@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon app.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "serve": "tsc -w & pm2 start dist/app.js"
   },
   "dependencies": {
     "@prisma/client": "3.11.0",
